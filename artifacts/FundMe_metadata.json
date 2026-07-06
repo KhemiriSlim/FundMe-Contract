@@ -6,6 +6,25 @@
 	"output": {
 		"abi": [
 			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "funder",
+						"type": "address"
+					}
+				],
+				"name": "addressToAmountFunded",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "amountFunded",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "fund",
 				"outputs": [],
@@ -13,22 +32,27 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "getConvertionRate",
-				"outputs": [],
-				"stateMutability": "nonpayable",
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "funders",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
 				"inputs": [],
-				"name": "getPrice",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "getVersion",
+				"name": "minimumUsd",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -76,11 +100,19 @@
 			]
 		},
 		"FundMe.sol": {
-			"keccak256": "0x9d400b763ac6a675915eac05daeaca301c4447f7260b893623e93c8d05b4c77c",
+			"keccak256": "0x4d525255ee8db6243316dd54fc8ebcef5a609976b62881309049a0ea9257d00c",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://35018a257457dc9c017fbd6b9717a998ac3026a37ce2b38e9542bca982879a07",
-				"dweb:/ipfs/QmVXBP1K413LRPtEdV8kRRmtRbvqENJapbCtwYjWmnpZzU"
+				"bzz-raw://52d1b7da7f821c11bdc8aea11befbe3a5c50f3a954e8acb6f9b8673c4ac4c6b8",
+				"dweb:/ipfs/QmcKzTfkDEnZWisWj1UqoyEmS6dGb2wZTU7VXEg4LWsvYu"
+			]
+		},
+		"PriceConverter.sol": {
+			"keccak256": "0x3c519a182c6b9e9bbbe76d4dcdc2483d44e71189c3eb495626195ca2307305f8",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://9cf488a61f3c58bdde2280bd9edaadced52d2f0e27b0ef5bf995019a4561e4fe",
+				"dweb:/ipfs/QmV6831qS6KCyyDHXMTk2o3i3ADJibyXYNDiMSVVLUx8YH"
 			]
 		}
 	},
