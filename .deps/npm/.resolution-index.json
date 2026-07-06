@@ -27,7 +27,7 @@
     "./PriceConverter.sol": "PriceConverter.sol",
     "__sources__": {
       "FundMe.sol": {
-        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.18;\r\n\r\nimport {PriceConverter} from \"./PriceConverter.sol\";\r\n\r\ncontract FundMe{\r\n\r\n    using PriceConverter for uint256;\r\n\r\n    uint public minimumUsd = 5e18;\r\n    address[] public funders;\r\n    mapping (address funder=> uint256 amountFunded) public addressToAmountFunded;\r\n\r\n    function fund() public payable{\r\n        require(msg.value.getConvertionRate() >= minimumUsd, \"didn t send enough ETH\");\r\n        funders.push(msg.sender);\r\n        addressToAmountFunded[msg.sender] = addressToAmountFunded[msg.sender] + msg.value;\r\n    }\r\n    \r\n}",
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.18;\r\n\r\nimport {PriceConverter} from \"./PriceConverter.sol\";\r\n\r\ncontract FundMe{\r\n    using PriceConverter for uint256;\r\n    uint public minimumUsd = 5e18;\r\n    address[] public funders;\r\n    mapping (address funder=> uint256 amountFunded) public addressToAmountFunded;\r\n\r\n    function fund() public payable{\r\n        require(msg.value.getConvertionRate() >= minimumUsd, \"didn t send enough ETH\");\r\n        funders.push(msg.sender);\r\n        addressToAmountFunded[msg.sender] = addressToAmountFunded[msg.sender] + msg.value;\r\n    }\r\n    function withdraw() public {\r\n        for(uint256 funderIndex = 0; funderIndex < funders.length; funderIndex++){\r\n            address funder =  funders[funderIndex];\r\n            addressToAmountFunded[funder] = 0;\r\n        }\r\n    }\r\n}",
         "file": "FundMe.sol"
       },
       "PriceConverter.sol": {
